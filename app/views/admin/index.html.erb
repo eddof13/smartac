@@ -1,1 +1,27 @@
-test
+<center>
+    <h1>Smart AC Demo</h1>
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <h3>Devices</h3>
+    <table>
+    <tr>
+        <th>Serial Number</th>
+        <th>Registration Date</th>
+        <th>Firmware Version</th>
+        <th></th>
+    </tr>
+    <% @devices.each do |device| %>
+    <tr>
+        <td><%= device.serial_number %></td>
+        <td><%= device.registration_date %></td>
+        <td><%= device.firmware_version %></td>
+        <td><%= button_to "Sensor Data", "admin/#{device.id}", :method => "get" %></td>
+    </tr>
+    <% end %>
+    </table>
+</center>

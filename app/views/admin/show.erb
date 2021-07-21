@@ -1,0 +1,41 @@
+<center>
+    <h1>Smart AC Demo - <%= link_to 'Back to home', root_path %></h1>
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <h3>Device</h3>
+    <table>
+    <tr>
+        <th>Serial Number</th>
+        <th>Registration Date</th>
+        <th>Firmware Version</th>
+    </tr>
+    <tr>
+        <td><%= @device.serial_number %></td>
+        <td><%= @device.registration_date %></td>
+        <td><%= @device.firmware_version %></td>
+    </tr>
+    </table>
+
+    <h3>Sensor Data (Last 50)</h3>
+    <table>
+    <tr>
+        <th>Temperature</th>
+        <th>Humidity Percentage</th>
+        <th>CO2 Level</th>
+        <th>Health Status</th>
+    </tr>
+    <% @device.sensor_datum.last(50).each do |sensor_datum| %>
+    <tr>
+        <td><%= sensor_datum.temperature %></td>
+        <td><%= sensor_datum.humidity_percentage %></td>
+        <td><%= sensor_datum.co2_level %></td>
+        <td><%= sensor_datum.health_status %></td>
+    </tr>
+    <% end %>
+    </table>
+</center>

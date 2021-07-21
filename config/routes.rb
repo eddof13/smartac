@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :sensor_data, only: [:create]
   end
 
-  resource :admin, only: [:index, :show]
-
+  get '/admin/:device_id', to: 'admin#show'
+  
   root "admin#index"
 end

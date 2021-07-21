@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_07_21_032452) do
     t.string "serial_number"
     t.datetime "registration_date"
     t.string "firmware_version"
-    t.string "shared_secret"
   end
 
   create_table "sensor_data", force: :cascade do |t|
