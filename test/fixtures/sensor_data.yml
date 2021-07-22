@@ -4,8 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  device_id: 1
+  collection_date: '2021-07-21T15:25:54Z'
+  temperature: '40.00'
+  humidity_percentage: '10.23'
+  co2_level: '8.99'
+  health_status: 'ok'
+
+two:
+  device_id: 2
+  collection_date: '2021-07-23T15:25:54Z'
+  temperature: '4.00'
+  humidity_percentage: '1.23'
+  co2_level: '9.01'
+  health_status: 'needs_service'

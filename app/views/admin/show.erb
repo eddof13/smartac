@@ -16,10 +16,38 @@
     </tr>
     <tr>
         <td><%= @device.serial_number %></td>
-        <td><%= @device.registration_date %></td>
+        <td><%= @device.created_at %></td>
         <td><%= @device.firmware_version %></td>
     </tr>
     </table>
+
+    <h3>Temperature (Today)</h3>
+    <%= line_chart @sensor_data_today.maximum(:temperature) %>
+    <h3>Humidity (Today)</h3>
+    <%= line_chart @sensor_data_today.maximum(:humidity_percentage) %>
+    <h3>CO2 Level (Today)</h3>
+    <%= line_chart @sensor_data_today.maximum(:co2_level) %>
+
+    <h3>Temperature (Last Week)</h3>
+    <%= line_chart @sensor_data_week.maximum(:temperature) %>
+    <h3>Humidity (Last Week)</h3>
+    <%= line_chart @sensor_data_week.maximum(:humidity_percentage) %>
+    <h3>CO2 Level (Last Week)</h3>
+    <%= line_chart @sensor_data_week.maximum(:co2_level) %>
+
+    <h3>Temperature (Last Month)</h3>
+    <%= line_chart @sensor_data_month.maximum(:temperature) %>
+    <h3>Humidity (Last Month)</h3>
+    <%= line_chart @sensor_data_month.maximum(:humidity_percentage) %>
+    <h3>CO2 Level (Last Month)</h3>
+    <%= line_chart @sensor_data_month.maximum(:co2_level) %>
+
+    <h3>Temperature (Last Year)</h3>
+    <%= line_chart @sensor_data_year.maximum(:temperature) %>
+    <h3>Humidity (Last Year)</h3>
+    <%= line_chart @sensor_data_year.maximum(:humidity_percentage) %>
+    <h3>CO2 Level (Last Year)</h3>
+    <%= line_chart @sensor_data_year.maximum(:co2_level) %>
 
     <h3>Sensor Data (Last 50)</h3>
     <table>
@@ -28,6 +56,7 @@
         <th>Humidity Percentage</th>
         <th>CO2 Level</th>
         <th>Health Status</th>
+        <th>Collection Date</th>
     </tr>
     <% @device.sensor_datum.last(50).each do |sensor_datum| %>
     <tr>
@@ -35,6 +64,7 @@
         <td><%= sensor_datum.humidity_percentage %></td>
         <td><%= sensor_datum.co2_level %></td>
         <td><%= sensor_datum.health_status %></td>
+        <td><%= sensor_datum.collection_date %></td>
     </tr>
     <% end %>
     </table>

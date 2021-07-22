@@ -18,7 +18,7 @@
     <% @devices.each do |device| %>
     <tr>
         <td><%= device.serial_number %></td>
-        <td><%= device.registration_date %></td>
+        <td><%= device.created_at %></td>
         <td><%= device.firmware_version %></td>
         <td><%= button_to "Sensor Data", "admin/#{device.id}", :method => "get" %></td>
     </tr>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   get '/admin/:device_id', to: 'admin#show'
+  delete '/admin/clear_notices', to: 'admin#clear_notices'
   
   root "admin#index"
 end

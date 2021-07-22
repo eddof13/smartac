@@ -5,7 +5,9 @@ class SensorDataController < ApplicationController
         sensor_data = SensorDatum.create!(sensor_data_params)
         # TODO: handle array of params
 
-        if ::AuthService.new.validate(sensor_data.device.serial_number, params[:auth_token])
+        auth_token = request.headers['Authorization']
+        auth_token = auth_token.split(' ').last if auth_token&.starts_with?('Bearer ')
+        if ::AuthService.new.validate(sensor_data.device.serial_number, auth_token)
             response = sensor_data_params
             status = :created
         else
@@ -19,6 +21,6 @@ class SensorDataController < ApplicationController
     private
 
     def sensor_data_params
-        params.permit(:temperature, :humidity_percentage, :co2_level, :health_status, :device_id)
+        params.permit(:temperature, :humidity_percentage, :co2_level, :health_status, :device_id, :collection_date)
     end
 end

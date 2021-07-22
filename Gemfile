@@ -25,8 +25,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Prototype-specific
+# TODO: freeze these
 gem 'clearance'
 gem 'jwt'
+gem 'chartkick'
+gem 'groupdate'
+gem 'noticed'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
