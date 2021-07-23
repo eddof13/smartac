@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_142114) do
     t.datetime "collection_date"
     t.float "temperature"
     t.float "humidity_percentage"
-    t.float "co2_level"
+    t.float "co_level"
     t.string "health_status"
     t.integer "device_id", null: false
     t.index ["device_id"], name: "index_sensor_data_on_device_id"

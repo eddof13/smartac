@@ -9,7 +9,7 @@ one:
   collection_date: '2021-07-21T15:25:54Z'
   temperature: '40.00'
   humidity_percentage: '10.23'
-  co2_level: '8.99'
+  co_level: '8.99'
   health_status: 'ok'
 
 two:
@@ -17,5 +17,5 @@ two:
   collection_date: '2021-07-23T15:25:54Z'
   temperature: '4.00'
   humidity_percentage: '1.23'
-  co2_level: '9.01'
+  co_level: '9.01'
   health_status: 'needs_service'

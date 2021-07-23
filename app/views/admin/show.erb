@@ -25,36 +25,36 @@
     <%= line_chart @sensor_data_today.maximum(:temperature) %>
     <h3>Humidity (Today)</h3>
     <%= line_chart @sensor_data_today.maximum(:humidity_percentage) %>
-    <h3>CO2 Level (Today)</h3>
-    <%= line_chart @sensor_data_today.maximum(:co2_level) %>
+    <h3>Carbon Monoxide Level (Today)</h3>
+    <%= line_chart @sensor_data_today.maximum(:co_level) %>
 
     <h3>Temperature (Last Week)</h3>
     <%= line_chart @sensor_data_week.maximum(:temperature) %>
     <h3>Humidity (Last Week)</h3>
     <%= line_chart @sensor_data_week.maximum(:humidity_percentage) %>
-    <h3>CO2 Level (Last Week)</h3>
-    <%= line_chart @sensor_data_week.maximum(:co2_level) %>
+    <h3>Carbon Monoxide Level (Last Week)</h3>
+    <%= line_chart @sensor_data_week.maximum(:co_level) %>
 
     <h3>Temperature (Last Month)</h3>
     <%= line_chart @sensor_data_month.maximum(:temperature) %>
     <h3>Humidity (Last Month)</h3>
     <%= line_chart @sensor_data_month.maximum(:humidity_percentage) %>
-    <h3>CO2 Level (Last Month)</h3>
-    <%= line_chart @sensor_data_month.maximum(:co2_level) %>
+    <h3>Carbon Monoxide Level (Last Month)</h3>
+    <%= line_chart @sensor_data_month.maximum(:co_level) %>
 
     <h3>Temperature (Last Year)</h3>
     <%= line_chart @sensor_data_year.maximum(:temperature) %>
     <h3>Humidity (Last Year)</h3>
     <%= line_chart @sensor_data_year.maximum(:humidity_percentage) %>
-    <h3>CO2 Level (Last Year)</h3>
-    <%= line_chart @sensor_data_year.maximum(:co2_level) %>
+    <h3>Carbon Monoxide Level (Last Year)</h3>
+    <%= line_chart @sensor_data_year.maximum(:co_level) %>
 
     <h3>Sensor Data (Last 50)</h3>
     <table>
     <tr>
         <th>Temperature</th>
         <th>Humidity Percentage</th>
-        <th>CO2 Level</th>
+        <th>Carbon Monoxide Level</th>
         <th>Health Status</th>
         <th>Collection Date</th>
     </tr>
@@ -62,7 +62,7 @@
     <tr>
         <td><%= sensor_datum.temperature %></td>
         <td><%= sensor_datum.humidity_percentage %></td>
-        <td><%= sensor_datum.co2_level %></td>
+        <td><%= sensor_datum.co_level %></td>
         <td><%= sensor_datum.health_status %></td>
         <td><%= sensor_datum.collection_date %></td>
     </tr>

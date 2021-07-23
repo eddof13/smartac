@@ -1,21 +1,25 @@
 class DevicesController < ApplicationController
     protect_from_forgery unless: -> { request.format.json? || request.format.xml? }
-    
+    before_action :validate_registration, only: [:create]
+
     def create
         device = Device.create!(device_params)
-        registration = ::AuthService.new.register(device.serial_number, params[:shared_secret])
-        if registration
-            response = device_params.merge(auth_token: registration[:auth_token], id: device.id)
-            status = :created
-        else
-            response = { error: "Invalid registration" }
-            status = 401
-        end
+        response = device_params.merge(auth_token: registration[:auth_token], id: device.id)
 
-        render json: response, status: status
+        render json: response, status: :created
     end
 
     private
+
+    def validate_registration
+        unless registration
+            render json: { error: "Invalid registration" }, status: 401
+        end
+    end
+
+    def registration
+        @registration ||= ::AuthService.new.register(params[:serial_number], params[:shared_secret])
+    end
 
     def device_params
         params.permit(:serial_number, :firmware_version)
